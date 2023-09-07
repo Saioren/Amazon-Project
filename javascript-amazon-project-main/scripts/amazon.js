@@ -1,3 +1,5 @@
+import {cart} from '../data/cart.js';
+
 let productsHTML = '';
 
 products.forEach((product)=>{
@@ -41,7 +43,7 @@ productsHTML += `
 
         <div class="product-spacer"></div>
 
-        <div class="added-to-cart">
+        <div class="added-to-cart js-added-to-cart-${product.id}">
         <img src="images/icons/checkmark.png" />
         Added
         </div>
@@ -79,10 +81,7 @@ if(matchingItem){
     matchingItem.quantity+= quantity;
 } else {
     cart.push({
-        productId: productId,
-        quantity: quantity,
-       });
-}  
+        productId, quantity,});}; 
 
 let cartQuantity = 0;
 
@@ -90,10 +89,14 @@ cart.forEach((item)=>{
 cartQuantity += item.quantity;
 });
 
-
-
 document.querySelector('.js-cart-quantity')
 .innerHTML = cartQuantity;
+
+const addedMessage = document.querySelector(
+    `.js-added-to-cart-${productId}`
+  );
+
+  addedMessage.classList.add('added-to-cart-visible');
 
 });
 });

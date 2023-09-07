@@ -65,6 +65,10 @@
   }
 }
 
+.added-to-cart-visible{
+  opacity: 1;
+}
+
 .product-container {
   padding-top: 40px;
   padding-bottom: 25px;
